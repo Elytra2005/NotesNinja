@@ -1,0 +1,76 @@
+{% extends "baseplate.html" %}
+
+
+{% block upload %}
+
+<!-- <section id="upload-main" class="flex flex-col items-center justify-center py-16 w-full min-h-screen gap-6 bg-gray-100 border rounded-md shadow-md">
+    <div id="title-main" class="mb-4">
+        <h1 class="font-bold text-lg text-gray-800">Upload Your Study Materials</h1>
+    </div>
+    <div id="submit-main" class="w-full max-w-md">
+        <form action="/notes" class="flex flex-col items-center">
+            <input 
+                type="file" 
+                id="actual-btn" 
+                name="file-upload" 
+                class="actual-submit"
+                hidden
+            />
+            <label for="actual-btn" class="cursor-pointer bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700">Choose File</label>
+        </form>
+    </div>
+</section> -->
+
+
+<main class="flex-grow flex items-center justify-center">
+    <section id="upload-main" class="flex flex-col items-center justify-center w-full max-w-lg gap-6 bg-gray-100 border rounded-md shadow-md p-8">
+        <div id="title-main" class="mb-4">
+            <h1 class="font-bold text-lg text-gray-800">Upload Your Study Materials</h1>
+        </div>
+        <div id="submit-main" class="w-full max-w-md">
+            <form method="post" action="/notes" id="mysubmit" class="form-upload flex flex-col items-center"  enctype="multipart/form-data">
+                <input 
+                    type="file" 
+                    id="actual-btn" 
+                    name="file-upload" 
+                    class="actual-submit"
+                    hidden
+
+                />
+                <label for="actual-btn" class="cursor-pointer  text-white py-2 px-4 rounded-md hover:bg-purple-700">Choose File</label>
+                <input type="submit" name="submitbutton" />
+                <div id="error-class">{{error}}</div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script type="text/javascript">
+
+let countButton = parseInt(localStorage.getItem("countTheButton") || 0);
+
+let form = document.getElementById("mysubmit");
+
+if(isNaN(countButton)) {
+    console.log("not a number");
+    countButton = 0; // if not a number converts it into 0
+}
+
+form.addEventListener("submit", (e) => {
+    // save this to local storage
+    // extra tasks after form submission
+    // window.location = "notes.html";
+       // e.preventDefault();
+       // countButton++;
+       // console.log("submitted!");
+       // console.log("The Current number is... ", countButton);
+       // localStorage.setItem("countTheButton", countButton);
+       // form.submit();
+
+});
+
+</script>
+
+
+
+{% endblock %}

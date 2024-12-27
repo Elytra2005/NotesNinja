@@ -1,0 +1,22 @@
+{% extends "baseplate.html" %}
+
+{% block title %}
+    <title>Your Notes</title>
+{% endblock %}
+
+{% block oldnotes %}
+ <section class="old-notes-main mt-5">
+    <!-- old notes will be displayed here-->
+    <h1 class="text-center ">Your Notes</h1>
+     <div class="container">
+        <div class="container contain-old-notes flex flex-row justify-center items-center gap-10 ">
+             <!-- <div class="card-box">
+                <h1 class="card-title">title bruh</h1>
+             </div> -->
+        </div>
+     </div>
+ </section>
+
+ <script src="{{ url_for('static', filename='loadblocks.js') }}" type="text/javascript"></script>
+
+{% endblock %}
